@@ -8,6 +8,10 @@
  --Negro: #000;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
@@ -55,7 +59,7 @@ body {
 
 /* ======= HERO / PORTADA ======= */
 .hero {
-    position: relative;
+  position: relative;
   height: 100vh;
   background-image: url("img/fondo_talentos.jpg"); /* cambia esta imagen */
   background-size: cover;
@@ -466,4 +470,32 @@ footer .pie p {
   .pie3 a {
     margin-right: 0.3rem;
   }
+}
+
+/* ======= RESPONSIVE PARA MÓVILES Y TABLET ======= */
+@media (max-width: 1024px) {
+  .hero h1 { font-size: 2.5rem; }
+  .hero p { font-size: 1.1rem; }
+}
+
+@media (max-width: 768px){ 
+  /* Header */
+  .barra-inicio {
+    flex-direction: column;
+    padding: 1rem 2rem;
+  }
+  .nav-principal {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  /* Hero */
+  .hero h1 { font-size: 1.8rem; }
+  .hero p { font-size: 1rem; }
+
+  /* Menu principal */
+  .menu { 
+    flex-direction: column; gap: 2rem; padding: 2
+  }
+
 }
