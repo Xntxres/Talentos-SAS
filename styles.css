@@ -644,9 +644,8 @@ body {
 
 /*IMAGEN FINAL DE PAGINA INDEX*/
 .ImagenGrande {
-  width: 100%;
-  max-height: 350px;
-  overflow: hidden;
+  width:auto;
+  overflow:visible;
   /* oculta el exceso */
 }
 
@@ -659,7 +658,7 @@ body {
 /* ======= FOOTER MODERNO ======= */
 .footer-modern {
   background-color: var(--gris);
-  padding: 3rem 3rem;
+  padding: 1rem 4rem;
   color: var(--amarillo);
   font-family: "Poppins", sans-serif;
   margin-top: auto;
@@ -711,7 +710,7 @@ body {
 }
 
 .social a:hover {
-  color: white;
+  color: var(--negro);
   transform: translateX(5px);
 }
 
