@@ -231,6 +231,30 @@ body {
   max-width: 800px;
 }
 
+.valores-section {
+  position: relative;
+  padding: 4rem 6rem;
+  background-image: url("img/FondoValores.jpg"); /* tu imagen */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Capa de suavizado (opcional pero recomendada) */
+.valores-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.6); /* ajusta opacidad */
+  z-index: 0;
+}
+
+/* Todo el contenido encima del fondo */
+.valores-section > * {
+  position: relative;
+  z-index: 1;
+}
+
 .valores {
   display: flex;
   flex-wrap: wrap;
@@ -252,12 +276,6 @@ body {
   font-size: 1.4rem;
 }
 
-.valores p {
-  color: var(--azul);
-  font-size: 1rem;
-  line-height: 1.5;
-}
-
 .conocenos h2,
 .valores h3 {
   display: inline-block;
@@ -265,128 +283,51 @@ body {
   padding-bottom: 4px;
 }
 
-
-/* =========================================
-   SECCIÓN DE VALORES CORPORATIVOS
-   ========================================= */
-
-.valores-section {
-  padding: 4rem 2rem;
-  position: relative;
-  text-align: center;
-  background-image: url("img/FondoValores.jpg");
-  background-size: cover;
-  background-position: center;
-}
-
-.valores-section::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.45);
-  backdrop-filter: blur(2px);
-  z-index: 0;
-}
-
-.valores-section>* {
-  position: relative;
-  z-index: 1;
-}
-
-.titulo-seccion {
-  font-size: 2.3rem;
-  color: var(--azul);
-  margin-bottom: 2.5rem;
-  font-weight: 700;
-}
-
-/* =========================================
-   GRID
-   ========================================= */
+/* NUESTROS VALORES*/
 .valores-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem;
-  max-width: 1100px;
-  margin: auto;
-}
-
-/* =========================================
-   TARJETAS (CARDS)
-   ========================================= */
-.valor-card {
-  position: relative;
-  background: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(6px);
-  padding: 1.2rem;
-  border-radius: 20px;
-  overflow: hidden;
-  cursor: pointer;
-
   display: flex;
-  justify-content: center;
-  align-items: center;
-
-  transition: transform .35s ease, box-shadow .35s ease;
-  height: 380px;
+  height: 20rem;
+  gap: 1rem;
 }
 
+.valor-card {
+  flex: 1;
+  position: relative;
+  border-radius: 1rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  transition: all .8s cubic-bezier(.25,.4,.45,1.4);
+  display: flex;
+  align-items: flex-end;
+  padding: 1.2rem;
+  color: white;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+  overflow: hidden;
+}
+
+/* EFECTO CLAVE */
 .valor-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    transform: scale(1.2) translateY(-6px);
+      flex: 5;
 }
 
-/* =========================================
-   IMAGEN
-   ========================================= */
-.valor-card img {
-  width: 100%;
-  height: 260px;
-  object-fit: cover;
-  /* Recorta sin deformar */
-  border-radius: 12px;
-  transition: transform .35s ease;
+/*TEXTO DE NUESTROS VALORES*/
+
+#valores {
+  text-align: center;
 }
 
-.valor-card:hover img {
-  transform: scale(1.08);
+#valores h2 {
+  font-size: 2.2rem;
+  display: inline-block;
+  color: var(--azul);
+  border-bottom: 3px solid var(--naranja);
+  padding-bottom: 4px;
 }
 
-/* =========================================
-   CONTENIDO LATERAL (ANIMACIÓN)
-   ========================================= */
-.valor-contenido {
-  position: absolute;
-  left: -100%;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 70%;
-  background: rgba(0, 0, 0, 0.65);
-  padding: 1rem 1.5rem;
-  border-radius: 15px;
 
-  color: #fff;
-  text-align: left;
-  opacity: 0;
 
-  transition: left .4s ease, opacity .4s ease;
-}
-
-.valor-card:hover .valor-contenido {
-  left: 10%;
-  opacity: 1;
-}
-
-.valor-contenido h4 {
-  font-size: 1.3rem;
-  margin-bottom: .3rem;
-  color: var(--amarillo);
-}
-
-.valor-contenido p {
-  font-size: .95rem;
-  line-height: 1.4;
-}
 
 /* =========================================
    RESPONSIVE (OPCIONAL)
@@ -513,7 +454,7 @@ body {
   justify-content: flex-end;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: .3s ease-in-out;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
 /* Overlay para hacer la imagen más transparente */
@@ -548,8 +489,8 @@ body {
 
 /* Hover */
 .usuario-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  transform: scale(1.3) translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
 }
 
 /* ===== Botón ===== */
