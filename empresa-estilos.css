@@ -1,0 +1,102 @@
+/* ======= ESTILOS ESPECÍFICOS DE LA PÁGINA EMPRESA ======= */
+
+.hero-empresa {
+    width: 100%;
+    height: 60vh; /* Controla la altura: 60% de la pantalla */
+    margin-top: 80px; /* Para que el menú fijo no la tape */
+    
+    /* Reemplaza 'tu-imagen.jpg' por el nombre real de tu archivo */
+    background-image: url("img/+ DE 14 AÑOS CONECTANDO.png"); 
+    
+    /* ESTO ES LO QUE AJUSTA LA IMAGEN */
+    background-size: cover;      /* La imagen se estira o encoge para cubrir todo sin deformarse */
+    background-position: center; /* Se enfoca en el centro de la foto */
+    background-repeat: no-repeat;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Ajuste para celulares */
+@media (max-width: 768px) {
+    .hero-empresa {
+        height: 40vh; /* Más pequeño en móviles */
+    }
+    .hero-contenido h1 {
+        font-size: 2rem;
+    }
+}
+
+.titulo-linea {
+    text-align: center;
+    font-size: 2.2rem;
+    color: var(--azul);
+    margin: 3rem 0;
+    border-bottom: 3px solid var(--naranja);
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Timeline */
+.seccion-historia { padding: 4rem 2rem; }
+.timeline { max-width: 1000px; margin: 0 auto; }
+.evento { display: flex; align-items: center; gap: 2rem; margin-bottom: 3rem; }
+.evento.inversa { flex-direction: row-reverse; }
+.evento-img img { width: 100%; max-width: 400px; border-radius: 15px; box-shadow: var(--sombra-suave); }
+
+/* Misión y Visión */
+.mision-vision { background: #f0f8ff; padding: 4rem 2rem; }
+.mv-container { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; }
+.mv-card { 
+    background: white; 
+    padding: 2.5rem; 
+    border-radius: 15px; 
+    width: 450px; 
+    border-top: 5px solid var(--naranja);
+    box-shadow: var(--sombra-suave);
+}
+
+/* Efecto de Valores (El que te gustaba) */
+.valores-grid {
+    display: flex;
+    height: 300px;
+    gap: 4rem;
+    padding: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.valor-card {
+    flex: 1;
+    position: relative;
+    border-radius: 1rem;
+    background-position: center;
+    background-size: cover;
+    transition: all .6s cubic-bezier(.25,.4,.45,1.4);
+    display: flex;
+    align-items: flex-end;
+    padding: 1rem;
+    overflow: hidden;
+}
+.valor-card span { 
+    color: white; 
+    font-weight: bold; 
+    z-index: 2; 
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+}
+.valor-card:hover { flex: 4; transform: scale(1.05); }
+
+/* ======= CARRUSEL ======= */
+.colaboradores { padding: 4rem 0; text-align: center; }
+.carrusel { position: relative; max-width: 800px; margin: auto; overflow: hidden; }
+.carrusel-track { display: flex; transition: 0.5s ease; }
+.slide { min-width: 100%; height: 400px; object-fit: contain; }
+.carrusel-btn {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  background: rgba(0,0,0,0.5); color: white; border: none;
+  padding: 1rem; cursor: pointer; border-radius: 50%; z-index: 10;
+}
+.prev { left: 10px; } .next { right: 10px; }
+
