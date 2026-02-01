@@ -28,7 +28,7 @@ body {
   align-items: center;
   background-color: var(--blanco);
   padding: 0.5rem 0;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 5px rgba(160, 160, 160, 0.737);
   position: fixed;
   width: 100%;
   top: 0;
@@ -65,31 +65,28 @@ body {
 .hero {
   position: relative;
   height: 60vh; /* Ajustado para que no sea tan invasivo */
-  background-image: url("img/fondo_talentos.jpg");
+  background-image: url("img/fondo_talentos.png");
   background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: var(--amarillo);
-  margin-top: 80px;
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-attachment: scroll;
+  margin-top: 30px;
 }
 
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(45, 45, 45, 0.462);
+  background: rgba(255, 255, 255, 0);
   z-index: 1;
 }
 
 .hero-contenido {
-  position: relative;
-  z-index: 2;
-  max-width: 800px;
-  padding: 0 1rem;
+position: relative;
+z-index: 2;
+max-width: 800px; /* Ajusta este primer número (22rem) hasta que el botón quede donde quieres */
+padding: 26rem 0 0 24rem; 
+text-align: left;
 }
 
 .hero h1 {
@@ -99,17 +96,20 @@ body {
 
 .btn-principal {
   display: inline-block;
-  background-color: var(--amarillo);
+  background-color: var(--naranja);
   color: var(--negro);
   text-decoration: none;
-  padding: 0.8rem 2rem;
+  padding: 0.8rem 2.5rem;
   border-radius: 30px;
   font-weight: 600;
   transition: 0.3s;
+  cursor: pointer;
+  border: none; /* Por si decides usar <button> en lugar de <a> */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
 .btn-principal:hover {
-  background-color: var(--naranja);
+  background-color: var(--amarillo);
   transform: translateY(-3px);
 }
 
@@ -143,60 +143,47 @@ body {
 
 /* ======= SECCIÓN RESEÑA CORTA (LO NUEVO) ======= */
 .resena-corta {
-    padding: 4rem 2rem;
-    background-image:linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(img/ReseñaCorta.jpg);
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-.resena-info {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 15px;
-}
-
-.resena-info h2 {
-    color: var(--azul);
-    border-bottom: 3px solid var(--naranja);
-    display: inline-block;
-    margin-bottom: 1rem;
-}
-
-.resena-info p {
-    color: var(--gris);
-    font-size: 1.1rem;
-    line-height: 1.6;
-}
-
-/* ======= SERVICIOS ======= */
-
-.servicios-wrapper {
-  width: 100%;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(img/fondoPortal.jpg);
+   position: relative;
+  height: 60vh; /* Ajustado para que no sea tan invasivo */
+  background-image: url("img/nuestra_empresa.png");
   background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
-  padding: 4rem 0; /* Ajustamos el padding aquí */
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-attachment: scroll;
+  margin-top: 30px;
 }
+
+.resena-contenido {
+  position: absolute; /* Para moverlo libremente sobre la imagen */
+  bottom: 10%;       /* Lo sitúa cerca de la parte inferior */
+  left: 50%;         /* Lo mueve al centro horizontal */
+  transform: translateX(-50%); /* Truco para centrarlo perfectamente */
+  z-index: 2;
+  text-align: center;
+}
+
+.resena-corta .btn-principal {
+  background-color: var(--naranja); /* Cambiamos el color para que no sea igual al Hero */
+  color: var(--negro);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3); /* Sombra más fuerte para que resalte sobre la foto */
+}
+
+.resena-corta .btn-principal:hover {
+  background-color: var(--amarillo);
+  color: var(--negro);
+}
+/* ======= SERVICIOS ======= */
 
 .servicios {
   padding: 4rem 2rem;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(img/fondoPortal.jpg);
   background-size: cover;
-  background-attachment: fixed;
   display: grid;
   /* Forzamos 3 columnas exactas del mismo tamaño */
   grid-template-columns: repeat(3, 1fr); 
   gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 4rem 2rem;
 }
 
 .titulo-seccion {
@@ -205,15 +192,22 @@ body {
   text-align: center;
   color: var(--azul);
   margin-bottom: 2rem;
+  display: inline-block;
+  width: fit-content;
+  margin-inline: auto;
+  border-bottom: 4px solid var(--naranja);
+  padding-bottom: 3px;
 }
 
 .servicio-card {
   background: white;
-  border-radius: 20px;
+  border-radius: 15px;
   overflow: hidden;
-  box-shadow: var(--amarillo);
-  transition: 0.3s;
-  /* Añadimos esto para que todas las cards midan lo mismo aunque una tenga más texto que otra */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 
 }
 
@@ -229,6 +223,9 @@ body {
 
 .servicio-info { 
   padding: 1.5rem; 
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Mantenemos tu subrayado y colores intactos */
@@ -236,6 +233,10 @@ body {
   border-bottom: 2px solid var(--naranja);
   display: inline-block;
   margin-bottom: 0.5rem;
+}
+
+.servicio-info  p {
+  margin-top: auto;
 }
 
 /* RESPONSIVE: Para que no se rompa en celulares */
