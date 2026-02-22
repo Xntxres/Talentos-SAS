@@ -1,53 +1,64 @@
-// carrusel.js (versión más robusta)
+let slideActual = 0;
+const slides = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.dot');
+const intervaloTiempo = 6000; // Cambio cada 6 segundos
+
+function mostrarSlide(n) {
+  // Resetear clases
+  slides.forEach(s => s.classList.remove('activa'));
+  dots.forEach(d => d.classList.remove('activa'));
+  
+  slideActual = (n + slides.length) % slides.length;
+  
+  slides[slideActual].classList.add('activa');
+  dots[slideActual].classList.add('activa');
+}
+
+function cambiarSlide(paso) {
+  mostrarSlide(slideActual + paso);
+  reiniciarTimer();
+}
+
+function irASlide(n) {
+  mostrarSlide(n);
+  reiniciarTimer();
+}
+
+// Auto-play
+let slideTimer = setInterval(() => cambiarSlide(1), intervaloTiempo);
+
+function reiniciarTimer() {
+  clearInterval(slideTimer);
+  slideTimer = setInterval(() => cambiarSlide(1), intervaloTiempo);
+}
+
+// Pausar cuando el mouse está encima
+const contenedor = document.querySelector('.hero-container');
+contenedor.addEventListener('mouseenter', () => clearInterval(slideTimer));
+contenedor.addEventListener('mouseleave', () => reiniciarTimer());
+
+
 document.addEventListener('DOMContentLoaded', () => {
-  const slides = document.querySelectorAll(".slide");
-  const prevBtn = document.querySelector(".prev");
-  const nextBtn = document.querySelector(".next");
-  const track = document.querySelector(".carrusel-track");
+    const header = document.querySelector('.barra-inicio');
+    const menuToggle = document.getElementById('mobile-menu');
+    const nav = document.querySelector('.nav-principal');
 
-  if (!track || slides.length === 0) return; // seguridad
-
-  let index = 0;
-
-  function updateSlide() {
-    // Asumimos que cada slide ocupa 100% del ancho del carrusel
-    track.style.transform = `translateX(-${index * 100}%)`;
-    // Opcional: actualizar indicadores/atributos aria
-  }
-
-  // Prev/Next con validación
-  if (nextBtn) {
-    nextBtn.addEventListener("click", () => {
-      index = (index + 1) % slides.length;
-      updateSlide();
+    // Cambiar estilo del header al hacer scroll
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            header.style.height = '70px';
+            header.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+            header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+        } else {
+            header.style.height = '80px';
+            header.style.backgroundColor = 'rgba(253, 253, 253, 0.95)';
+            header.style.boxShadow = 'none';
+        }
     });
-  }
 
-  if (prevBtn) {
-    prevBtn.addEventListener("click", () => {
-      index = (index - 1 + slides.length) % slides.length;
-      updateSlide();
+    // Abrir/Cerrar menú en móviles
+    menuToggle.addEventListener('click', () => {
+        nav.classList.toggle('active');
+        // Opcional: animar las líneas del botón hamburguesa
     });
-  }
-
-  // Control por teclado (flechas)
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowRight') {
-      index = (index + 1) % slides.length;
-      updateSlide();
-    } else if (e.key === 'ArrowLeft') {
-      index = (index - 1 + slides.length) % slides.length;
-      updateSlide();
-    }
-  });
-
-  // Respecta preferencia de reducir movimiento
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)');
-  if (!prefersReduced.matches) {
-    // autoplay opcional (descomenta si quieres auto-play)
-    // let autoplay = setInterval(() => { index = (index + 1) % slides.length; updateSlide(); }, 5000);
-    // Para detener al hacer hover:
-    // track.addEventListener('mouseenter', () => clearInterval(autoplay));
-    // track.addEventListener('mouseleave', () => { autoplay = setInterval(...); });
-  }
 });

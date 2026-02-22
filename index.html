@@ -5,182 +5,342 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Talentos SAS | Conectando el Futuro</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
+
+  <!-- Fuente -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-<!-- Barra de navegación -->
-  <header class="barra-inicio">
+
+<header class="barra-inicio">
+  <div class="header-container">
     <img src="img/logo_talentos.png" alt="Logo Talentos SAS" class="logo">
 
+    <div class="menu-toggle" id="mobile-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
     <nav class="nav-principal">
-      <a href="#inicio">Inicio</a>
-      <a href="nuestra-empresa.html">Nuestra Empresa</a> <a href="#servicios">Nuestro Servicio</a>
-      <a href="https://co.computrabajo.com/talentossas" target="_blank">Ofertas de Empleo</a>
-      <a href="#colaboradores">Colaboradores</a>
-      <a href="#contacto">Contáctanos</a>
+      <a href="#inicio" class="nav-link">Inicio</a>
+      <a href="nuestra-empresa.html" class="nav-link">Nuestra Empresa</a>
+      <a href="#servicios" class="nav-link">Nuestro Servicio</a>
+      <a href="https://co.computrabajo.com/talentossas" target="_blank" class="nav-link">Ofertas de Empleo</a>
+      <a href="#usuarios" class="nav-link">Colaboradores</a>
+      <a href="#contacto" class="btn-contacto-nav">Contáctanos</a>
     </nav>
-  </header>
+  </div>
+</header>
 
 
-<!--Inicio-->
-<section id="inicio" class="hero">
-  <div class="hero-contenido">
-    <a href="https://co.computrabajo.com/talentossas/empleos" class="btn-principal" target="_blank" rel="noopener noreferrer">Aplica</a>
+  <!-- ===== HERO ===== -->
+<section id="inicio" class="hero-container">
+  <div class="carrusel-pista">
+    
+    <div class="slide activa" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('img/fondo_talentos.png');">
+      <div class="hero-content">
+        <h1>Conectando el Futuro</h1>
+        <p>Expertos en soluciones integrales de Recursos Humanos.</p>
+      </div>
+    </div>
+
+    <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('img/seleccion.jpg');">
+      <div class="hero-content">
+        <h2>Buscas Empleo?</h2>
+        <p>Explora nuestras vacantes vigentes y únete a grandes equipos.</p>
+        <a href="https://co.computrabajo.com/talentossas/empleos" target="_blank" class="btn-secundario">Ver Ofertas</a>
+      </div>
+    </div>
+
+    <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('img/sst.jpg');">
+      <div class="hero-content">
+        <h2>Seguridad y Salud</h2>
+        <p>Protegemos lo más valioso de tu empresa: las personas.</p>
+      </div>
+    </div>
+
+    <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('img/consultoria.jpg');">
+      <div class="hero-content">
+        <h2>Soluciones Corporativas</h2>
+        <p>Gestión de nómina y consultoría especializada para tu negocio.</p>
+        <a href="#usuarios" class="btn-secundario">Ir a Portales</a>
+      </div>
+    </div>
+
+  </div>
+
+  <button class="carrusel-control prev" onclick="cambiarSlide(-1)">&#10094;</button>
+  <button class="carrusel-control next" onclick="cambiarSlide(1)">&#10095;</button>
+
+  <div class="carrusel-dots">
+    <span class="dot activa" onclick="irASlide(0)"></span>
+    <span class="dot" onclick="irASlide(1)"></span>
+    <span class="dot" onclick="irASlide(2)"></span>
+    <span class="dot" onclick="irASlide(3)"></span>
   </div>
 </section>
 
+<!-- === CIFRAS DE IMPACTO === -->
+<section class="cifras-impacto">
+  <div class="cifra-item">
+    <span class="numero">+15</span>
+    <p>Años de experiencia</p>
+  </div>
+  <div class="cifra-item">
+    <span class="numero">+4000</span>
+    <p>Empleos generados</p>
+  </div>
 
-  <!-- Segunda seccion -->
-  <main>
-    <section id="empresa" class="menu">
-      <article>
-        <img src="img/icono_empresa.png" alt="Nuestra Empresa">
-        <h3>Nuestra Empresa</h3>
-        <a href="nuestra-empresa.html">Conócenos</a>
-      </article>
-      <article>
-        <img src="img/icono_servicio.png" alt="Nuestros Servicios">
-        <h3>Nuestro Servicio</h3>
-        <a href="#servicios">Ver más</a>
-      </article>
-      <article>
-        <img src="img/icono_oferta.png" alt="Ofertas de empleo">
-        <h3>Ofertas de Empleo</h3>
-        <a href="https://co.computrabajo.com/talentossas" target="_blank">Aplica ahora</a>
-      </article>
-    </section>
+  <div class="cifra-item">
+    <span class="numero">+130</span>
+    <p>Empresas aliadas</p>
+  </div>
+</section>
 
-    <!--Tercera Seccion-->
+    <!-- ===== RESEÑA ===== -->
     <section class="resena-corta">
-        <div class="resena-contenido">
-            <a href="nuestra-empresa.html" class="btn-principal" style="text-decoration: none;">Conócenos más!</a>
-        </div>
-    </section>
-
-    <!-- Cuarta Seccion -->
- <section id="servicios" class="servicios">
-  <h2 class="titulo-seccion">Nuestros Servicios</h2>
-
-  <div class="servicio-card">
-    <img src="img/seleccion.jpg" alt="Reclutamiento">
-    <div class="servicio-info">
-      <h3>Reclutamiento y Selección</h3>
-      <p>Atraemos y evaluamos a los mejores candidatos para garantizar perfiles alineados con tu empresa.</p>
-    </div>
-  </div>
-
-  <div class="servicio-card">
-    <img src="img/nomina.jpg" alt="Nómina">
-    <div class="servicio-info">
-      <h3>Administración de Nómina</h3>
-      <p>Gestionamos liquidaciones, contratos y novedades laborales con total precisión legal.</p>
-    </div>
-  </div>
-
-  <div class="servicio-card">
-    <img src="img/sst.jpg" alt="SST">
-    <div class="servicio-info">
-      <h3>Seguridad y Salud en el Trabajo</h3>
-      <p>Implementamos sistemas de gestión para proteger la integridad física y mental de los trabajadores.</p>
-    </div>
-  </div>
-
-  <div class="servicio-card">
-    <img src="img/consultoria.jpg" alt="Consultoría">
-    <div class="servicio-info">
-      <h3>Consultoría en Gestión Humana</h3>
-      <p>Ofrecemos asesoría experta para optimizar procesos y estrategias de talento humano.</p>
-    </div>
-  </div> <div class="servicio-card">
-    <img src="img/capacitacion.jpg" alt="Capacitación">
-    <div class="servicio-info">
-      <h3>Capacitación y Desarrollo</h3>
-      <p>Desarrollamos programas personalizados para potenciar habilidades y competencias de tus empleados.</p>
-    </div>
-  </div>
-
-  <div class="servicio-card">
-    <img src="img/nominaOut.jpg" alt="NominaOut">
-    <div class="servicio-info">
-      <h3>Outsourcing de Nómina</h3>
-      <p>Implementamos sistemas de evaluación para medir y mejorar el rendimiento laboral.</p>
-    </div>
-  </div>
-
-</section>
-<!-- Quinta Seccion -->
-    <section id="usuarios" class="usuarios">
-      <h2>Portales de Usuario</h2>
-      <div class="usuarios-container">
-        <div class="usuario-card fondo-candidato">
-          <h3>¿Eres Candidato?</h3>
-          <a href="https://www.sorttime.co/PortalAspirante/Portal/TLS/Ofertas/lst_ofertas.aspx" target="_blank" class="btn-usuario">Ver Vacantes</a>
-        </div>
-        <div class="usuario-card fondo-colaborador">
-          <h3>¿Eres Colaborador?</h3>
-          <a href="https://sorttime.co/sorttime2/oficina/tls/Inicio.aspx" target="_blank" class="btn-usuario">Portal Colaborador</a>
-        </div>
-        <div class="usuario-card fondo-empresa">
-          <h3>¿Eres Empresa?</h3>
-          <a href="https://sorttime.co/sorttime2/oficina/tls/InicioEmpresa.aspx" target="_blank" class="btn-usuario">Portal Empresa</a>
-        </div>
+      <div class="resena-contenido">
+        <a href="nuestra-empresa.html" class="btn-secundario">
+          ¡Conócenos más!
+        </a>
       </div>
     </section>
-    <!-- Sexta Seccion -->
-<main>
-    <section id="noticias" class="noticias-index">
-        <h2 class="titulo-centrado">Actualidad y Noticias RRHH</h2>
-        <div class="grid-noticias">
-            <article class="noticia-card">
-                <div class="noticia-tag">Tendencias</div>
-                <h4>El Futuro del Trabajo Híbrido</h4>
-                <p>Cómo las empresas líderes están adaptando sus oficinas para el 2024...</p>
-                <a href="#" class="leer-mas">Leer artículo</a>
-            </article>
-            <article class="noticia-card">
-                <div class="noticia-tag">Legal</div>
-                <h4>Actualización Normativa</h4>
-                <p>Lo que debes saber sobre los nuevos decretos de contratación laboral...</p>
-                <a href="#" class="leer-mas">Leer artículo</a>
-            </article>
-            <article class="noticia-card">
-                <div class="noticia-tag">Talento</div>
-                <h4>Retención de Talento</h4>
-                <p>Estrategias clave para mantener motivados a tus mejores colaboradores...</p>
-                <a href="#" class="leer-mas">Leer artículo</a>
-            </article>
-        </div>
-    </section>
-    </main>
 
-  <footer id="contacto" class="footer-modern">
+
+    <!-- ===== SERVICIOS ===== -->
+<section id="servicios" class="servicios-container"> 
+  
+  <div class="servicios-header">
+    <h2 class="titulo-seccion">Nuestros Servicios</h2>
+    <p class="subtitulo-seccion">Soluciones integrales diseñadas para potenciar el talento de tu organización.</p>
+  </div>
+
+  <div class="servicios-grid">
+    
+    <div class="servicio-card">
+      <div class="servicio-img-container">
+        <img src="img/seleccion.jpg" alt="Reclutamiento y selección">
+        <div class="servicio-overlay"><span>Saber más</span></div>
+      </div>
+      <div class="servicio-info">
+        <h3>Reclutamiento y Selección</h3>
+        <p>Atraemos y evaluamos a los mejores candidatos para garantizar perfiles alineados con tu empresa.</p>
+      </div>
+    </div>
+
+    <div class="servicio-card">
+      <div class="servicio-img-container">
+        <img src="img/nomina.jpg" alt="Administración de nómina">
+        <div class="servicio-overlay"><span>Saber más</span></div>
+      </div>
+      <div class="servicio-info">
+        <h3>Administración de Nómina</h3>
+        <p>Gestionamos liquidaciones, contratos y novedades laborales con total precisión legal.</p>
+      </div>
+    </div>
+
+    <div class="servicio-card">
+      <div class="servicio-img-container">
+        <img src="img/sst.jpg" alt="Seguridad y salud en el trabajo">
+        <div class="servicio-overlay"><span>Saber más</span></div>
+      </div>
+      <div class="servicio-info">
+        <h3>Seguridad y Salud</h3>
+        <p>Implementamos sistemas de gestión para proteger la integridad física y mental de los trabajadores.</p>
+      </div>
+    </div>
+
+    <div class="servicio-card">
+      <div class="servicio-img-container">
+        <img src="img/consultoria.jpg" alt="Consultoría en gestión humana">
+        <div class="servicio-overlay"><span>Saber más</span></div>
+      </div>
+      <div class="servicio-info">
+        <h3>Consultoría en Gestión</h3>
+        <p>Ofrecemos asesoría experta para optimizar procesos y estrategias de talento humano.</p>
+      </div>
+    </div>
+
+    <div class="servicio-card">
+      <div class="servicio-img-container">
+        <img src="img/capacitacion.jpg" alt="Capacitación y desarrollo">
+        <div class="servicio-overlay"><span>Saber más</span></div>
+      </div>
+      <div class="servicio-info">
+        <h3>Capacitación y Desarrollo</h3>
+        <p>Desarrollamos programas personalizados para potenciar habilidades y competencias.</p>
+      </div>
+    </div>
+
+    <div class="servicio-card">
+      <div class="servicio-img-container">
+        <img src="img/nominaOut.jpg" alt="Outsourcing de nómina">
+        <div class="servicio-overlay"><span>Saber más</span></div>
+      </div>
+      <div class="servicio-info">
+        <h3>Outsourcing de Personal</h3>
+        <p>Implementamos soluciones de tercerización eficientes para la operatividad de tu negocio.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+    <!-- ===== NOTICIAS ===== -->
+     <section id="noticias" class="noticias-index">
+  <div class="servicios-header">
+    <h2 class="titulo-seccion">Actualidad y Noticias RRHH</h2>
+    <p class="subtitulo-seccion">Mantente al día con las últimas tendencias y normativas del mundo laboral.</p>
+  </div>
+
+  <div class="grid-noticias">
+
+    <article class="noticia-card">
+      <div class="noticia-img">
+        <img src="img/noticia-hibrido.jpg" alt="Trabajo Híbrido">
+        <div class="noticia-tag">Tendencias</div>
+      </div>
+      <div class="noticia-cuerpo">
+        <span class="noticia-fecha">22 Feb, 2026</span>
+        <h4>El Futuro del Trabajo Híbrido</h4>
+        <p>Cómo las empresas líderes están adaptando sus oficinas para el bienestar y la productividad...</p>
+        <a href="#" class="leer-mas">Leer artículo <i class="fas fa-chevron-right"></i></a>
+      </div>
+    </article>
+
+    <article class="noticia-card">
+      <div class="noticia-img">
+        <img src="img/noticia-legal.jpg" alt="Actualización Normativa">
+        <div class="noticia-tag">Legal</div>
+      </div>
+      <div class="noticia-cuerpo">
+        <span class="noticia-fecha">15 Feb, 2026</span>
+        <h4>Actualización Normativa</h4>
+        <p>Lo que debes saber sobre los nuevos decretos de contratación laboral vigentes para este trimestre...</p>
+        <a href="https://www.mintrabajo.gov.co/web/guest/marco-legal" class="leer-mas">Leer artículo <i class="fas fa-chevron-right"></i></a>
+      </div>
+    </article>
+
+    <article class="noticia-card">
+      <div class="noticia-img">
+        <img src="img/noticia-talento.jpg" alt="Retención de Talento">
+        <div class="noticia-tag">Talento</div>
+      </div>
+      <div class="noticia-cuerpo">
+        <span class="noticia-fecha">10 Feb, 2026</span>
+        <h4>Retención de Talento</h4>
+        <p>Estrategias clave para mantener motivados a tus colaboradores y reducir la rotación de personal...</p>
+        <a href="#" class="leer-mas">Leer artículo <i class="fas fa-chevron-right"></i></a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+  <!-- PORTALES -->
+<section id="usuarios" class="usuarios-seccion">
+  <div class="servicios-header">
+    <h2 class="titulo-seccion">Nuestros Portales</h2>
+    <p class="subtitulo-seccion">Accede a nuestras plataformas de gestión de forma rápida y segura.</p>
+  </div>
+
+  <div class="usuarios-grid">
+
+    <div class="usuario-card fondo-candidato">
+      <div class="usuario-overlay-fijo"></div>
+      <div class="usuario-contenido">
+        <div class="usuario-icono"></div>
+        <h3>¿Buscas Empleo?</h3>
+        <p>Postúlate a nuestras vacantes y gestiona tu proceso de selección.</p>
+        <a href="https://www.sorttime.co/PortalAspirante/Portal/TLS/Ofertas/lst_ofertas.aspx"
+           target="_blank" rel="noopener noreferrer" class="btn-portal">
+           Ver Vacantes
+        </a>
+      </div>
+    </div>
+
+    <div class="usuario-card fondo-colaborador">
+      <div class="usuario-overlay-fijo"></div>
+      <div class="usuario-contenido">
+        <div class="usuario-icono"></div>
+        <h3>¿Eres Colaborador?</h3>
+        <p>Descarga desprendibles, certificados y gestiona tus novedades.</p>
+        <a href="https://sorttime.co/sorttime2/oficina/tls/Inicio.aspx"
+           target="_blank" rel="noopener noreferrer" class="btn-portal">
+           Portal Colaborador
+        </a>
+      </div>
+    </div>
+
+    <div class="usuario-card fondo-empresa">
+      <div class="usuario-overlay-fijo"></div>
+      <div class="usuario-contenido">
+        <div class="usuario-icono"></div>
+        <h3>¿Eres Empresa?</h3>
+        <p>Gestiona procesos, consulta facturación y reportes de personal.</p>
+        <a href="https://sorttime.co/sorttime2/oficina/tls/InicioEmpresa.aspx"
+           target="_blank" rel="noopener noreferrer" class="btn-portal">
+           Portal Empresa
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer id="contacto" class="footer-modern">
+  <div class="footer-container">
     <div class="footer-columns">
+
+      <div class="col col-branding">
+        <img src="img/logo_talentos.png" alt="Logo Talentos SAS" class="logo-footer">
+        <p>Líderes en soluciones integrales de talento humano y outsourcing en Colombia.</p>
+        <div class="social-icons">
+          <a href="https://www.instagram.com/talentos_col/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/company/talentos-sas/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://www.facebook.com/TalentosSAS900" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        </div>
+      </div>
+
       <div class="col">
         <h3>Oficinas</h3>
-        <p><strong>Sincelejo:</strong> Calle 25 # 16-102</p>
-        <p><strong>Medellín:</strong> Calle 51 # 49-11 (Ed. Fabricato)</p>
-        <p><strong>Barranquilla:</strong> Calle 77b # 57-103 (Ed. Green Towers)</p>
+        <ul class="lista-sedes">
+          <li><strong>Sincelejo:</strong> Calle 25 # 16-102</li>
+          <li><strong>Medellín:</strong> Calle 51 # 49-11 (Ed. Fabricato)</li>
+          <li><strong>Barranquilla:</strong> Calle 77b # 57-103 (Green Towers)</li>
+        </ul>
       </div>
+
       <div class="col">
         <h3>Compañía</h3>
         <a href="nuestra-empresa.html">Sobre Nosotros</a>
-        <a href="nuestra-empresa.html#noticias">Noticias</a>
+        <a href="#noticias">Noticias RRHH</a>
+        <a href="#servicios">Servicios</a>
+        <a href="https://co.computrabajo.com/talentossas" target="_blank">Vacantes</a>
       </div>
+
       <div class="col">
-        <h3>Redes Sociales</h3>
-        <div class="social">
-          <a href="https://www.instagram.com/talentos_col/" target="_blank">Instagram</a>
-          <a href="https://www.linkedin.com/company/talentos-sas/" target="_blank">LinkedIn</a>
-          <a href="https://www.facebook.com/TalentosSAS900" target="_blank">Facebook</a>
-        </div>
+        <h3>Contacto</h3>
+        <p><i class="fas fa-phone"></i> (605) 274 5555</p>
+        <p><i class="fas fa-envelope"></i> comercial@talentossas.com</p>
+        <a href="#inicio" class="back-to-top">Volver Arriba ↑</a>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-bottom-content">
+      <p>© 2026 Talentos SAS — Todos los derechos reservados.</p>
+      <div class="footer-legal">
+        <a href="#">Política de Privacidad</a>
+        <a href="#">Términos de Servicio</a>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p>© 2026 Talentos SAS — Todos los derechos reservados.</p>
-    </div>
-  </footer>
-  <script src="carrusel.js"></script>
+  </div>
+</footer>
+<script src="carrusel.js"></script>
 </body>
-</html>
