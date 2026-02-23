@@ -295,7 +295,7 @@ body {
 }
 
 /* Estilo para el item destacado (el 100%) */
-.cifra-item.destacado.numero {
+.cifra-item.destacado .numero {
   color: var(--naranja);
 }
 

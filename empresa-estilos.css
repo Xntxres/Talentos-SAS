@@ -2,101 +2,163 @@
 
 .hero-empresa {
     width: 100%;
-    height: 60vh; /* Controla la altura: 60% de la pantalla */
-    margin-top: 80px; /* Para que el menú fijo no la tape */
-    
-    /* Reemplaza 'tu-imagen.jpg' por el nombre real de tu archivo */
-    background-image: url("img/+ DE 14 AÑOS CONECTANDO.png"); 
-    
-    /* ESTO ES LO QUE AJUSTA LA IMAGEN */
-    background-size: cover;      /* La imagen se estira o encoge para cubrir todo sin deformarse */
-    background-position: center; /* Se enfoca en el centro de la foto */
+    height: 60vh;
+    margin-top: 80px;
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url("img/+ DE 14 AÑOS CONECTANDO.png"); 
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
-    
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-
-/* Ajuste para celulares */
-@media (max-width: 768px) {
-    .hero-empresa {
-        height: 40vh; /* Más pequeño en móviles */
-    }
-    .hero-contenido h1 {
-        font-size: 2rem;
-    }
 }
 
 .titulo-linea {
     text-align: center;
     font-size: 2.2rem;
     color: var(--azul);
-    margin: 3rem 0;
-    border-bottom: 3px solid var(--naranja);
+    margin: 3rem auto;
+    border-bottom: 4px solid var(--naranja);
     display: table;
-    margin-left: auto;
-    margin-right: auto;
+    padding-bottom: 10px;
 }
 
 /* Timeline */
-.seccion-historia { padding: 4rem 2rem; }
+.seccion-historia { padding: 4rem 2rem; background: #fff; }
 .timeline { max-width: 1000px; margin: 0 auto; }
-.evento { display: flex; align-items: center; gap: 2rem; margin-bottom: 3rem; }
+.evento { display: flex; align-items: center; gap: 4rem; margin-bottom: 4rem; }
 .evento.inversa { flex-direction: row-reverse; }
-.evento-img img { width: 100%; max-width: 400px; border-radius: 15px; box-shadow: var(--sombra-suave); }
+.evento-img img { width: 100%; max-width: 450px; border-radius: 20px; box-shadow: var(--sombra-suave); }
+.evento-texto h3 { color: var(--naranja); font-size: 1.8rem; margin-bottom: 1rem; }
+.evento-texto p { color: var(--gris); line-height: 1.8; font-size: 1.1rem; }
 
 /* Misión y Visión */
-.mision-vision { background: #f0f8ff; padding: 4rem 2rem; }
-.mv-container { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; }
+.mision-vision { background: #f8fbff; padding: 5rem 2rem; }
+.mv-container { display: flex; gap: 3rem; justify-content: center; flex-wrap: wrap; }
 .mv-card { 
     background: white; 
-    padding: 2.5rem; 
-    border-radius: 15px; 
-    width: 450px; 
-    border-top: 5px solid var(--naranja);
-    box-shadow: var(--sombra-suave);
+    padding: 3rem; 
+    border-radius: 20px; 
+    width: 500px; 
+    border-top: 6px solid var(--azul);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
 }
+.mv-card:hover { transform: translateY(-10px); border-top-color: var(--naranja); }
+.mv-card h3 { color: var(--azul); font-size: 2rem; margin-bottom: 1.5rem; }
 
-/* Efecto de Valores (El que te gustaba) */
-.valores-grid {
-    display: flex;
-    height: 300px;
-    gap: 4rem;
-    padding: 2rem;
-    max-width: 1000px;
-    margin: 0 auto;
-}
+/* Valores Expandibles */
+.valores-grid { display: flex; height: 350px; gap: 1rem; padding: 2rem; max-width: 1100px; margin: 0 auto; }
 .valor-card {
     flex: 1;
     position: relative;
-    border-radius: 1rem;
+    border-radius: 15px;
     background-position: center;
     background-size: cover;
     transition: all .6s cubic-bezier(.25,.4,.45,1.4);
     display: flex;
     align-items: flex-end;
-    padding: 1rem;
+    padding: 1.5rem;
     overflow: hidden;
+    cursor: pointer;
 }
-.valor-card span { 
-    color: white; 
-    font-weight: bold; 
-    z-index: 2; 
-    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+.valor-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    z-index: 1;
 }
-.valor-card:hover { flex: 4; transform: scale(1.05); }
+.valor-card span { color: white; font-weight: 700; z-index: 2; font-size: 1.2rem; opacity: 0.8; }
+.valor-card:hover { flex: 4; }
+.valor-card:hover span { opacity: 1; font-size: 1.5rem; }
 
-/* ======= CARRUSEL ======= */
-.colaboradores { padding: 4rem 0; text-align: center; }
-.carrusel { position: relative; max-width: 800px; margin: auto; overflow: hidden; }
-.carrusel-track { display: flex; transition: 0.5s ease; }
-.slide { min-width: 100%; height: 400px; object-fit: contain; }
+/* ======= SECCIÓN COLABORADORES (EQUIPO) ======= */
+
+.colaboradores-empresa {
+    padding: 80px 0;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+/* Contenedor principal del carrusel */
+.carrusel-equipo {
+    position: relative;
+    max-width: 1100px;     /* Un poco más ancho para que se aprecie el contenido */
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 20px;
+    background: #fdfdfd;   /* Fondo neutro */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Pista que contiene las imágenes */
+.carrusel-track {
+    display: flex;
+    transition: transform 0.6s cubic-bezier(0.45, 0, 0.55, 1);
+    align-items: center;   /* Centra verticalmente si las fotos tienen alturas distintas */
+}
+
+/* Estilo de cada imagen */
+.slide-equipo {
+    min-width: 100%;
+    height: auto;          /* Altura flexible */
+    max-height: 550px;     /* Límite para que no ocupe toda la pantalla */
+    object-fit: contain;   /* Muestra la imagen COMPLETA sin recortar nada */
+    display: block;
+    background-color: #f8fbff; /* Color de relleno por si la imagen es proporcionalmente distinta */
+}
+
+/* Botones de navegación */
 .carrusel-btn {
-  position: absolute; top: 50%; transform: translateY(-50%);
-  background: rgba(0,0,0,0.5); color: white; border: none;
-  padding: 1rem; cursor: pointer; border-radius: 50%; z-index: 10;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--azul);
+    color: white;
+    border: none;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 10;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
-.prev { left: 10px; } .next { right: 10px; }
 
+.carrusel-btn:hover {
+    background: var(--naranja);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carrusel-btn.prev { left: 15px; }
+.carrusel-btn.next { right: 15px; }
+
+/* Ajustes para que en móvil no se pierda detalle */
+@media (max-width: 768px) {
+    .carrusel-equipo {
+        max-width: 95%;
+        border-radius: 10px;
+    }
+    
+    .slide-equipo {
+        max-height: 350px; /* Un poco más bajo en móviles */
+    }
+
+    .carrusel-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+}
+/* Responsive */
+@media (max-width: 768px) {
+    .valores-grid { height: auto; flex-direction: column; }
+    .valor-card { height: 150px; flex: none; }
+    .evento, .evento.inversa { flex-direction: column; text-align: center; gap: 1.5rem; }
+    .hero-empresa { height: 40vh; }
+}
