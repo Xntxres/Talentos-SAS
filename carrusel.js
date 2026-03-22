@@ -1,34 +1,3 @@
-/* ======= CARRUSEL HOME (HERO) ======= */
-let slideActual = 0;
-const slidesHero = document.querySelectorAll('.hero-container .slide');
-const dots = document.querySelectorAll('.dot');
-
-if (slidesHero.length > 0) {
-    function mostrarSlideHero(n) {
-        slidesHero.forEach(s => s.classList.remove('activa'));
-        dots.forEach(d => d.classList.remove('activa'));
-        slideActual = (n + slidesHero.length) % slidesHero.length;
-        slidesHero[slideActual].classList.add('activa');
-        if (dots[slideActual]) dots[slideActual].classList.add('activa');
-    }
-
-    window.cambiarSlide = (paso) => {
-        mostrarSlideHero(slideActual + paso);
-        reiniciarTimer();
-    };
-
-    window.irASlide = (n) => {
-        mostrarSlideHero(n);
-        reiniciarTimer();
-    };
-
-    let slideTimer = setInterval(() => cambiarSlide(1), 6000);
-    function reiniciarTimer() {
-        clearInterval(slideTimer);
-        slideTimer = setInterval(() => cambiarSlide(1), 6000);
-    }
-}
-
 /* ======= CARRUSEL EQUIPO (PÁGINA EMPRESA) ======= */
 const track = document.querySelector('.carrusel-track');
 const slidesEquipo = document.querySelectorAll('.slide-equipo');
@@ -37,21 +6,46 @@ const btnPrev = document.querySelector('.carrusel-btn.prev');
 
 if (track && slidesEquipo.length > 0) {
     let indexEquipo = 0;
+    let autoPlayEquipo;
+
     const moverEquipo = () => {
         track.style.transform = `translateX(-${indexEquipo * 100}%)`;
     };
 
-    btnNext.addEventListener('click', () => {
+    const siguienteEquipo = () => {
         indexEquipo = (indexEquipo + 1) % slidesEquipo.length;
         moverEquipo();
+    };
+
+    const anteriorEquipo = () => {
+        indexEquipo = (indexEquipo - 1 + slidesEquipo.length) % slidesEquipo.length;
+        moverEquipo();
+    };
+
+    // Función para iniciar/reiniciar el temporizador automático
+    const iniciarAutoPlay = () => {
+        clearInterval(autoPlayEquipo);
+        autoPlayEquipo = setInterval(siguienteEquipo, 5000); // Cambia cada 5 segundos
+    };
+
+    // Eventos de botones
+    btnNext.addEventListener('click', () => {
+        siguienteEquipo();
+        iniciarAutoPlay(); // Reinicia el tiempo al hacer clic
     });
 
     btnPrev.addEventListener('click', () => {
-        indexEquipo = (indexEquipo - 1 + slidesEquipo.length) % slidesEquipo.length;
-        moverEquipo();
+        anteriorEquipo();
+        iniciarAutoPlay(); // Reinicia el tiempo al hacer clic
     });
-}
 
+    // Iniciar el carrusel automático al cargar
+    iniciarAutoPlay();
+
+    // Opcional: Pausar cuando el mouse está encima
+    track.addEventListener('mouseenter', () => clearInterval(autoPlayEquipo));
+    track.addEventListener('mouseleave', iniciarAutoPlay);
+}
 /* ======= HEADER Y MENÚ MÓVIL ======= */
 document.addEventListener('DOMContentLoaded', () => {
     const header = document.querySelector('.barra-inicio');
